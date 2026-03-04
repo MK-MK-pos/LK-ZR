@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LK ZR — Ultimate Movie Discovery Portal</title>
+    <meta name="description" content="Discover your next favorite film with our advanced movie portal. Voice search, personalized recommendations, community ratings, trailers and more.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Creative Preloader - Enhanced Loading Experience -->
+<div id="preloader">
+    <div class="preloader__inner">
+        <div class="preloader__title">LK ZR</div>
+        <div class="preloader__subtitle">Cinematic Journey Begins Here</div>
+        <div class="preloader__track">
+            <div class="preloader__bar" id="preloaderBar"></div>
+        </div>
+        <div class="preloader__percentage" id="preloaderPercent">0%</div>
+        <div class="preloader__signature">Created With Passion By LK ZR</div>
+    </div>
+</div>
+
+<!-- Atmospheric Background Layers -->
+<div class="backdrop"></div>
+<div class="overlay"></div>
+
+<!-- Author Signature - Floating Watermark -->
+<div class="signature">LK ZR • Cinema Curators</div>
+
+<!-- Site Header -->
+<header class="site-header">
+    <h1>LK ZR</h1>
+    <p class="site-header__sub">Your Personal Gateway To The World Of Cinema</p>
+</header>
+
+<!-- Main Control Panel -->
+<section class="toolbar">
+    <div class="toolbar__genre">
+        <button class="genre-btn active" data-genre="Action">Action & Adventure</button>
+        <button class="genre-btn" data-genre="Drama">Drama & Emotion</button>
+        <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi & Fantasy</button>
+        <button class="genre-btn" data-genre="Comedy">Comedy & Humor</button>
+        <button class="genre-btn" data-genre="Favorites">My Favorite Movies</button>
+    </div>
+    <input type="text" class="toolbar__search" id="searchInput" placeholder="🔍 Search Movies By Title Or Description...">
+    <select class="toolbar__sort" id="sortSelect">
+        <option value="name">📋 Sort By Name (A-Z)</option>
+        <option value="year">📅 Sort By Release Year (Newest First)</option>
+        <option value="rating">⭐ Sort By Rating (Highest First)</option>
+    </select>
+</section>
+
+<main class="main-container">
+
+    <!-- Featured Movie Showcase Section -->
+    <section class="featured">
+        <div class="featured__info">
+            <h2 id="featuredTitle">Today's Featured Selection</h2>
+            <div class="featured__desc-wrapper">
+                <p id="featuredDesc">Discover Hand-Picked Cinematic Masterpieces Curated Just For You</p>
+            </div>
+            <div class="featured__actions">
+                <button id="featuredOpen" class="btn-primary">▶ Watch Featured Movie</button>
+                <button id="featuredRandom" class="btn-outline">🎲 Surprise Me With Random Pick</button>
+            </div>
+            <div class="featured__quick">
+                <button class="quick-btn" data-movie="madmax">🚗 Mad Max: Fury Road</button>
+                <button class="quick-btn" data-movie="shawshank">⚖️ The Shawshank Redemption</button>
+                <button class="quick-btn" data-movie="interstellar">🌌 Interstellar</button>
+                <button class="quick-btn" data-movie="matrix">💊 The Matrix</button>
+            </div>
+        </div>
+        <div class="featured__poster" id="featuredPoster">
+            <span>🎬</span>
+        </div>
+    </section>
+
+    <!-- Movie Carousel - Browse All Movies -->
+    <div class="carousel-wrapper">
+        <div class="carousel" id="carousel"></div>
+    </div>
+
+    <!-- Global Community Rating Section -->
+    <section class="rating-section">
+        <div class="rating-section__left">
+            <h2>🌍 Global Community Rating</h2>
+            <p>Join Thousands Of Movie Enthusiasts Worldwide In Rating Our Platform</p>
+            <div id="ratingMessage" class="rating-message"></div>
+            <div class="rating-stars" id="ratingStars">
+                <span class="star" data-value="1">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="5">☆</span>
+            </div>
+            <div id="ratingFeedback" class="rating-feedback"></div>
+            <div class="rating-stats">
+                <span>⭐ Global Average: <span id="globalRatingValue">0</span> / 5</span>
+                <span>👥 Total Votes: <span id="globalVotes">0</span> From Around The World</span>
+            </div>
+        </div>
+        <div class="rating-section__right">
+            <span>⭐</span>
+        </div>
+    </section>
+
+    <!-- Interactive Movie Preferences Quiz -->
+    <section class="quiz-section">
+        <div class="quiz-section__left">
+            <h2>🎯 Personal Movie Preferences Quiz</h2>
+            <p>Tell Us What You Love, And We'll Find Your Perfect Movie Match</p>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="checkbox" data-target="Action"> 🔥 High-Octane Action & Thrills</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Drama"> 🎭 Deep Emotional Stories & Character Studies</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Sci-Fi"> 👽 Mind-Bending Sci-Fi & Futuristic Worlds</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Comedy"> 😂 Light-Hearted Comedy & Feel-Good Movies</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Classic"> 🎞 Timeless Classics & Cinematic Milestones</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Visual"> 🎨 Stunning Visuals & Masterful Cinematography</label>
+            </div>
+            <button id="quizSubmit" class="btn-primary">✨ Generate Personalized Recommendations</button>
+            <div id="quizResult" class="quiz-result"></div>
+        </div>
+        <div class="quiz-section__right">
+            <span>🎯</span>
+        </div>
+    </section>
+</main>
+
+<!-- Site Footer -->
+<footer class="footer">
+    <p>© 2025 LK ZR — Your Ultimate Movie Discovery Companion. All Data Stored Locally For Your Privacy.</p>
+    <p style="font-size: 0.9rem; margin-top: 8px;">Made With ❤️ By Film Lovers, For Film Lovers Everywhere.</p>
+</footer>
+
+<!-- Detailed Movie Modal With Complete Information -->
+<div class="modal" id="movieModal">
+    <div class="modal__card">
+        <div class="modal__poster">
+            <img id="modalPosterImg" src="" alt="Movie Poster">
+        </div>
+        <div class="modal__content">
+            <h2 id="modalTitle" class="modal__title">Movie Title</h2>
+            <div class="modal__meta" id="modalMeta">Release Year • Rating</div>
+            <div class="modal__desc-wrapper">
+                <p id="modalDesc" class="modal__desc">Complete Movie Description And Plot Summary Will Appear Here</p>
+            </div>
+            <div class="modal__cast" id="modalCast">Featured Cast Members Will Be Displayed Here</div>
+            <div class="modal__actions">
+                <button id="modalTrailer" class="btn-primary small">▶ Watch Official Trailer On YouTube</button>
+                <button id="modalLike" class="btn-outline small">🤍 Add To Liked Movies</button>
+                <button id="modalFav" class="btn-outline small">☆ Add To Personal Favorites Collection</button>
+                <button id="modalClose" class="btn-outline small">✕ Close Detailed View</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
