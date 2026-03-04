@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LK ZR — Movie Guide</title>
+    <meta name="description" content="Your personal movie guide: search, collections, ratings and trailers.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Unique preloader -->
+<div id="preloader">
+    <div class="preloader__inner">
+        <div class="preloader__title">LK ZR</div>
+        <div class="preloader__subtitle">cinema for everyone</div>
+        <div class="preloader__track">
+            <div class="preloader__bar" id="preloaderBar"></div>
+        </div>
+        <div class="preloader__percentage" id="preloaderPercent">0%</div>
+        <div class="preloader__signature">project by LK ZR</div>
+    </div>
+</div>
+
+<!-- Background layers -->
+<div class="backdrop"></div>
+<div class="overlay"></div>
+
+<!-- Signature -->
+<div class="signature">LK ZR</div>
+
+<!-- Header -->
+<header class="site-header">
+    <h1>LK ZR</h1>
+    <p class="site-header__sub">movies worth watching</p>
+</header>
+
+<!-- Toolbar -->
+<section class="toolbar">
+    <div class="toolbar__genre">
+        <button class="genre-btn active" data-genre="Action">Action</button>
+        <button class="genre-btn" data-genre="Drama">Drama</button>
+        <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi</button>
+        <button class="genre-btn" data-genre="Comedy">Comedy</button>
+        <button class="genre-btn" data-genre="Favorites">Favorites</button>
+    </div>
+    <input type="text" class="toolbar__search" id="searchInput" placeholder="Search...">
+    <select class="toolbar__sort" id="sortSelect">
+        <option value="name">By name</option>
+        <option value="year">By year</option>
+        <option value="rating">By rating</option>
+    </select>
+</section>
+
+<main class="main-container">
+
+    <!-- Featured movie banner -->
+    <section class="featured">
+        <div class="featured__info">
+            <h2 id="featuredTitle">Featured Movie</h2>
+            <div class="featured__desc-wrapper">
+                <p id="featuredDesc">Click a button to see description</p>
+            </div>
+            <div class="featured__actions">
+                <button id="featuredOpen" class="btn-primary">Open</button>
+                <button id="featuredRandom" class="btn-outline">Random</button>
+            </div>
+            <div class="featured__quick">
+                <button class="quick-btn" data-movie="madmax">Mad Max</button>
+                <button class="quick-btn" data-movie="shawshank">Shawshank</button>
+                <button class="quick-btn" data-movie="interstellar">Interstellar</button>
+                <button class="quick-btn" data-movie="matrix">Matrix</button>
+            </div>
+        </div>
+        <div class="featured__poster" id="featuredPoster">
+            <span>🎬</span>
+        </div>
+    </section>
+
+    <!-- Movie carousel -->
+    <div class="carousel-wrapper">
+        <div class="carousel" id="carousel"></div>
+    </div>
+
+    <!-- Global portal rating -->
+    <section class="rating-section">
+        <div class="rating-section__left">
+            <h2>Portal Rating</h2>
+            <p>Your vote helps others</p>
+            <div id="ratingMessage" class="rating-message"></div>
+            <div class="rating-stars" id="ratingStars">
+                <span class="star" data-value="1">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="5">☆</span>
+            </div>
+            <div id="ratingFeedback" class="rating-feedback"></div>
+            <div class="rating-stats">
+                <span>🌍 Global rating: <span id="globalRatingValue">0</span> ★</span>
+                <span>Votes: <span id="globalVotes">0</span></span>
+            </div>
+        </div>
+        <div class="rating-section__right">
+            <span>⭐</span>
+        </div>
+    </section>
+
+    <!-- Preferences quiz -->
+    <section class="quiz-section">
+        <div class="quiz-section__left">
+            <h2>Your Preferences</h2>
+            <p>Select what you like</p>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="checkbox" data-target="Action"> 🔥 Action</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Drama"> 🎭 Drama</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Sci-Fi"> 👽 Sci-Fi</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Comedy"> 😂 Comedy</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Classic"> 🎞 Classics</label>
+                <label class="quiz-option"><input type="checkbox" data-target="Visual"> 🎨 Visuals</label>
+            </div>
+            <button id="quizSubmit" class="btn-primary">Recommend</button>
+            <div id="quizResult" class="quiz-result"></div>
+        </div>
+        <div class="quiz-section__right">
+            <span>🎯</span>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>© 2025 LK ZR. All data stored locally.</p>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="movieModal">
+    <div class="modal__card">
+        <div class="modal__poster">
+            <img id="modalPosterImg" src="" alt="poster">
+        </div>
+        <div class="modal__content">
+            <h2 id="modalTitle" class="modal__title">Title</h2>
+            <div class="modal__meta" id="modalMeta">year • rating</div>
+            <div class="modal__desc-wrapper">
+                <p id="modalDesc" class="modal__desc">description</p>
+            </div>
+            <div class="modal__cast" id="modalCast">Cast: —</div>
+            <div class="modal__actions">
+                <button id="modalTrailer" class="btn-primary small">Trailer</button>
+                <button id="modalLike" class="btn-outline small">🤍 Like</button>
+                <button id="modalFav" class="btn-outline small">☆ Favorite</button>
+                <button id="modalClose" class="btn-outline small">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
